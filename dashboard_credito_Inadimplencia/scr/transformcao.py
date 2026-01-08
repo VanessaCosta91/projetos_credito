@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 ## Ler arquivo em CSV
-df = pd.read_csv('dashboard_credito_Inadimplencia/data/credit_risk_dataset.csv')
+df = pd.read_csv('dashboard_credito_Inadimplencia\data\input\credit_risk_dataset.csv')
 
 # Traduzir nome das colunas para português
 df = df.rename(columns={
@@ -40,7 +40,7 @@ df.loc[
     (df['idade'] < 18) | (df['idade'] > 80), 'idade'
     ] = np.nan
 
-## Transformar tempo de trabalho em nultos. Foi adotado como cirterio tempo inferior a 0, e idade-14 (visto que a legislação brasileria permite o primerio emprego 14 anos, embora seja um situação rara ainda é possíve) 
+## Transformar tempo de trabalho em nulos. Foi adotado como cirterio tempo inferior a 0, e idade-14 (visto que a legislação brasileria permite o primerio emprego 14 anos, embora seja um situação rara ainda é possíve) 
 df.loc[
     (df['tempo_emprego'] < 0) |
     (df['tempo_emprego'] >= (df['idade'] - 14)),
@@ -78,7 +78,7 @@ df['faixa_hist_credito'] = pd.cut(
     labels=['Muito Curto', 'Curto', 'Médio', 'Longo','Muito Longo']
 )
 
-# Traduz infromações nas colunas proprieade da casa e inadiplencia arquivada
+# Traduz infromações nas colunas proprieade da casa, inadiplencia arquivada e intenção de empréstimo
 mapa_casa = {
     'RENT': 'Alugada',
     'OWN': 'Propria',
@@ -88,9 +88,24 @@ mapa_casa = {
 
 df['propriedade_casa'] = df['propriedade_casa'].map(mapa_casa)
 
+mapa_intencao = {
+    'PERSONAL': 'Pessoal',
+    'EDUCATION': 'Educacão',
+    'MEDICAL': 'Saúde',
+    'HOMEIMPROVEMENT': 'Reforma',
+    'DEBTCONSOLIDATION': 'Consolidação de dívidas'
+}
+
+df['intencao_emprestimo'] = df['intencao_emprestimo'].map(mapa_intencao)
+
 df['inadimplencia_arquivada'] = df['inadimplencia_arquivada'].map({'Y': 'Sim', 'N': 'Não'})
 
 print(df.head().to_string())
 
-print(df.describe())
+# Salva daframe transformado
+
+df.to_csv('dashboard_credito_Inadimplencia/data/output/credit_risk_tratado.csv', index=False)
+df.to_csv('dashboard_credito_Inadimplencia/data/output/credit_risk_power_bi.csv', index=False, decimal=',')
+print('Dataframe salvo com sucesso.')
+
 
