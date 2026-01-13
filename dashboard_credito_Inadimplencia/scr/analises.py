@@ -7,7 +7,7 @@ df_tratado = pd.read_csv('dashboard_credito_Inadimplencia\data\output\credit_ris
 print('\n### Amostra do Dataframe ###\n')
 print(df_tratado.head().to_string())
 
-print('Taxa Geral de inadiplência: ', round(df_tratado['status_emprestimo'].mean(), 2))
+print('\n\n### Taxa Geral de inadimplência: ###\n', round(df_tratado['status_emprestimo'].mean()*100, 2))
 
 # Verifica Inadimplência por variáveis categóricas
 status = df_tratado.groupby('nivel_risco')['status_emprestimo'].mean().sort_values()
