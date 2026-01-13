@@ -1,13 +1,12 @@
-# Credito e inadimplencia
-
-Este projeto visa cria um Dashboard interetivo que cubra os três pilares do crédito: perfil do cliente, características do emprestimo e histórico de crédito, perminto assim, um analise completa de risco e inadiplencia.
+# Análise de Crédito e Inadimplência com Python e Power BI
+Este projeto visa criar um Dashboard interativo de crédito que cubra os três pilares principais da análise de risco: perfil do cliente, características do empréstimo e histórico de crédito, permitindo assim, uma visão integrada de inadimplência.
 
 ---
 
 ## 1. Coleta de dados
 - **Origem**: plataforma [Kaggle](https://www.kaggle.com/datasets/laotse/credit-risk-dataset)
 - **Acesso**: arquivo `.csv`
-- **Tipo de Dados**: dados tabulares com dados financeiros
+- **Tipo de Dados**: dados tabulares de crédito pessoal, contendo informações financeiras e histórico de crédito dos clientes.
 
 ---
 
@@ -15,21 +14,36 @@ Este projeto visa cria um Dashboard interetivo que cubra os três pilares do cr�
 
 ### 2.1 - Extração (E)
 
-O dataset [Credit Risk Dataset](https://www.kaggle.com/datasets/laotse/credit-risk-dataset), em formato `.csv`, foi baixado em um repositório local.
-A extração foi feito com o mando `pd.read_csv()` que ao mesmo tempo que lê o arquivo `.csv` o transforma em dataframe.
+O dataset foi carregado a partir de um arquivo `.csv` armazenado localmente, utilizando a biblioteca pandas.
+A leitura do arquivo foi realizada com o método `pd.read_csv()`, que importa os dados diretamente para um DataFrame.
 
 ```
-df = pd.read_csv('dashboard_credito_Inadimplencia/data/credit_risk_dataset.csv')
+df = pd.read_csv('dashboard_credito_Inadimplencia/data/input/credit_risk_dataset.csv')
 ```
 
 ### 2.2 - Transformação
-- Criação da coluna grau de risco
-- Tratamento de valores extremo ou implausiveis 
-- 
+
+Nesta etapa, foram aplicadas regras de negócio e tratamentos com foco em padronização, consistência e análise de risco, incluindo:
+
+- Tradução e padronização dos nomes das colunas para o português, facilitando a leitura e interpretação dos dados.
+- Criação da variável `nivel_risco`, a partir da classificação original do empréstimo, agrupando os clientes em faixas de risco crescentes (Muito Baixo a Muito Alto).
+- Tratamento de valores implausíveis:
+    - Idades inferiores a 18 anos ou superiores a 80 anos foram transformadas em valores nulos, seguindo práticas comuns de instituições financeiras.
+    - Valores inconsistentes de tempo de emprego (negativos ou incompatíveis com a idade do cliente) também foram tratados como nulos.
+- Criação de variáveis derivadas para análise:
+    - faixa_renda
+    - faixa_emprestimo
+    - faixa_hist_credito
+    - alerta_comprometimento, indicando alto comprometimento da renda com o empréstimo.
+- Padronização de variáveis categóricas, como tipo de moradia, inadimplência arquivada e intenção do empréstimo, traduzindo para português.
 
 ### 2.3 - Carga
 
-- Foi salvo o arquivo com dados transformatos em formato `.csv`
+Após as transformações, o dataset final foi salvo em formato `.csv`, servindo como base para a análise exploratória e para a construção do dashboard.
+
+```
+df.to_csv('dashboard_credito_Inadimplencia/data/output/credit_risk_tratado.csv', index=False)
+```
 
 ---
 
@@ -37,8 +51,8 @@ df = pd.read_csv('dashboard_credito_Inadimplencia/data/credit_risk_dataset.csv')
 
 Nesta etapa, foi realizada uma análise exploratória sobre o dataset tratado, com foco na identificação de padrões relacionados à inadimplência e ao risco de crédito.
 
-**Principais insiths:**
-- A taxa geral de inadiplência da base de dados é relativamente baixa, em torno de 22%, indicando um portfólio predominantemente adimplente.
+**Principais insights:**
+- A taxa geral de inadimplência da base de dados é relativamente baixa, em torno de 22%, indicando um portfólio predominantemente adimplente.
 - Ao analisar a inadimplência por categorias, se observa que as maiores taxas estão associadas a:
     - níveis de risco mais elevados,
     - faixas de renda mais baixas,
@@ -60,5 +74,16 @@ A análise de correlação entre as variáveis numéricas indicou relações fra
 
 ## 4 - Dashboard
 
+![Dashboard de Crédito](assets/dashboard_credito.png)
 
+Este dashboard foi criado para analisar a inadimplência de clientes de crédito a partir de três pontos principais: perfil do cliente, características do empréstimo e histórico de crédito.
 
+No painel, é possível observar a taxa geral de inadimplência e como ela se comporta quando analisamos fatores como renda, valor do empréstimo, nível de risco, tipo de moradia e finalidade do crédito. A ideia é entender quais perfis apresentam maior risco e quais características estão mais associadas à inadimplência.
+
+O dashboard foi pensado para ser simples de usar e fácil de interpretar, ajudando a identificar padrões que podem apoiar decisões relacionadas à concessão de crédito e gestão de risco.
+
+---
+
+## Autor
+Vanessa Costa  
+Projeto desenvolvido para fins de estudo e portfólio em análise de dados e risco de crédito.
