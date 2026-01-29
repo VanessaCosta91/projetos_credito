@@ -1,5 +1,19 @@
 *.json
 lembrete.txt
 
-# Dados brutos
-pipeline_credito/data/raw/
+# Ambiente virtual
+.venv/
+
+# Dados
+data/raw/
+data/database/
+
+# Logs
+logs/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/

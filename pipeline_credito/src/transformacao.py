@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 
 # Função para validação e padronização os dados
 
-def raw_para_staging(df: pd.DataFrame) -> pd.DataFrame:
+def bruto_para_preparacao(df: pd.DataFrame) -> pd.DataFrame:
     
     logger.info("Iniciando a transformação.")
 
@@ -41,7 +41,7 @@ def valida_schema(df: pd.DataFrame) -> None:
 def valida_regras(df: pd.DataFrame) -> None:
     
     if not df["Class"].isin([0,1]).all():
-        logger.error("Valores encontrados na coluna Class são inválidos")
+        logger.error("Encontrado valores contrados na coluna Class.")
         raise ValueError("Valores inválidos em Class")
     
     if (df["Amount"] < 0).any():
@@ -64,4 +64,4 @@ def adiciona_colunas(df: pd.DataFrame) ->pd.DataFrame:
     df["is_fraud"] = df["Class"] == 1
 
     logger.info("Colunas amount_log e is_fraud adicionadas")
-    return df    
+    return df   

@@ -15,7 +15,7 @@ def extracao (dataset) -> list:
         logger.info(f'Autenticação realizada com sucesso.')
 
         # Caminho pasta que armazena dados brutos
-        caminho = "data/raw"
+        caminho = "pipeline_credito/data/raw"
         os.makedirs(caminho, exist_ok=True)
 
         # Fazer Dowlond dataset

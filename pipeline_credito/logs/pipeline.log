@@ -1,0 +1,21 @@
+2026-01-29 15:39:40,256 | INFO | __main__ | Iniciando pipeline
+2026-01-29 15:39:40,256 | INFO | extracao | Iniciando o downlowd do dataset do Kaggle
+2026-01-29 15:39:40,257 | INFO | extracao | Autenticação realizada com sucesso.
+2026-01-29 15:39:47,012 | INFO | extracao | Extração concluída. Arquivos: ['creditcard.csv']
+2026-01-29 15:39:47,013 | INFO | __main__ | Arquivos disponíveis na pasta RAW: ['creditcard.csv']
+2026-01-29 15:39:48,159 | INFO | __main__ | Dados brutos carregados em DataFrame
+2026-01-29 15:39:48,159 | INFO | transformacao | Iniciando a transformação.
+2026-01-29 15:39:48,159 | INFO | transformacao | DataFrame carregado com 284807 registros
+2026-01-29 15:39:48,159 | INFO | transformacao | Schema validado com sucesso
+2026-01-29 15:39:48,162 | INFO | transformacao | Validação de regras concluída com sucesso.
+2026-01-29 15:39:48,166 | INFO | transformacao | Tipos de dados padronizados
+2026-01-29 15:39:48,170 | INFO | transformacao | Colunas amount_log e is_fraud adicionadas
+2026-01-29 15:39:48,170 | INFO | transformacao | Transformação concluída com sucesso.
+2026-01-29 15:39:48,170 | INFO | __main__ | Dados transformados
+2026-01-29 15:39:48,193 | INFO | analises | Criando DataFrame agregado
+2026-01-29 15:39:48,215 | INFO | analises | Novo Dataframe criado com sucesso
+2026-01-29 15:39:48,215 | INFO | __main__ | Analises geradas.
+2026-01-29 15:39:48,215 | INFO | carga | Iniciando carga do Dataframe no banco de dados SQL.
+2026-01-29 15:39:48,225 | INFO | carga | Dados carregados com sucesso.
+2026-01-29 15:39:48,225 | INFO | carga | Conexão com banco de dados encerrada.
+2026-01-29 15:39:48,225 | INFO | __main__ | Dataframe carregado no banco de dados com sucesso
