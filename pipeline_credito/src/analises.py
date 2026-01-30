@@ -11,7 +11,7 @@ def gerar_analise (df: pd.DataFrame) -> pd.DataFrame:
                 qtde_transacoes=("Amount", "count"),
                 valor_total_transacoes=("Amount", "sum"),
                 total_fraudes=("is_fraud", "sum"),
-                percete_fraude=("is_fraud", "mean")
+                percentual_fraude=("is_fraud", "mean")
                 
     ))
     logger.info("Novo Dataframe criado com sucesso")
