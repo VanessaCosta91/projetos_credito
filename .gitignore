@@ -5,8 +5,8 @@ lembrete.txt
 .venv/
 
 # Dados
-data/raw/
-data/database/
+pipeline_credito/data/raw/
+pipeline_credito/data/database/
 
 # Logs
 logs/
