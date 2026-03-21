@@ -21,7 +21,6 @@ df = df.rename(columns={
 })
 
 # Criar coluna com classicação de nível de risco
-
 mapa_risco = {
     'A': 'Risco Muito Baixo',
     'B': 'Risco Baixo',
@@ -40,7 +39,8 @@ df.loc[
     (df['idade'] < 18) | (df['idade'] > 80), 'idade'
     ] = np.nan
 
-## Transformar tempo de trabalho em nulos. Foi adotado como cirterio tempo inferior a 0, e idade-14 (visto que a legislação brasileria permite o primerio emprego 14 anos, embora seja um situação rara ainda é possíve) 
+## Transformar tempo de trabalho em nulos. Foi adotado como cirterio tempo inferior a 0, e idade-14 
+##(visto que a legislação brasileria permite o primerio emprego 14 anos, embora seja um situação rara ainda é possíve) 
 df.loc[
     (df['tempo_emprego'] < 0) |
     (df['tempo_emprego'] >= (df['idade'] - 14)),
@@ -107,5 +107,3 @@ print(df.head().to_string())
 df.to_csv('dashboard_credito_Inadimplencia/data/output/credit_risk_tratado.csv', index=False)
 df.to_csv('dashboard_credito_Inadimplencia/data/output/credit_risk_power_bi.csv', index=False, decimal=',')
 print('Dataframe salvo com sucesso.')
-
-

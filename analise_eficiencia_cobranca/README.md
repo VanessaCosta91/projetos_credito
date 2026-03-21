@@ -48,10 +48,29 @@ Foi criada uma view consolidada unindo:
 
 Essa base final foi utilizada para as etapas posteriores de análise exploratória e visualização.
 
-
 ### Arquitetura do Pipeline de Dados
 Cada etapa do processo resultou na criação de uma view no BigQuery, seguindo a seguinte estrutura:
 - vw_credit_card_clean: dados tratados
 - vw_metricas_pagamento: métricas financeiras
 - vw_metricas_atraso: métricas comportamentais
 - vw_dataset_final: base consolidada para análise
+
+## 3 - Análise Exploratória de Dados (EDA)
+
+Foi realizada uma análise exploratória dos dados a partir do dataset final, com os seguintes principais achados:
+
+-  Distribuição do limite de crédito: a maior parte dos clientes possui limite inferior a 100 mil, indicando concentração em faixas de menor exposição ao risco;
+- Perfil demográfico dos clientes: 
+    - base predominantemente feminina;
+    - com idade inferior a 45 anos;
+    - com idade inferior a 45 anos;
+    - com nível de escolaridade superior;
+- Distribuição do percentual de pagamento: indica predominância de pagamentos parciais, com presença de casos em que há quitação de dívidas acumuladas;
+- Relação entre faturado e pago: : reforça o padrão de pagamento parcial e o acúmulo de dívida ao longo do tempo;
+- Distribuição de atraso recente: a maior parte dos clientes não apresenta atraso no período mais recente, embora exista uma parcela relevante com atraso;
+- Distribuição do total de meses em atraso: confirma que a maioria dos clientes mantém seus pagamentos em dia, porém frequentemente realiza pagamentos parciais;
+- Relação entre Atraso e Eficiência de Pagamento: quanto maior o número de meses em atraso, menor tende a ser o percentual de pagamento;
+- Correlação entre variáveis financeiras: quanto maior o número de meses em atraso, menor tende a ser o percentual de pagamento;
+
+**Principal Conclusão**: 
+As estratégias de cobrança devem considerar não apenas clientes em atraso, mas também aqueles que realizam pagamentos mínimos recorrentes, buscando reduzir o risco de inadimplência futura.
