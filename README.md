@@ -7,3 +7,7 @@ Análise exploratória e visual da inadimplência em crédito, considerando perf
 2. [Pipeline de Dados de Fraude em Cartão de Crédito](./pipeline_credito)
 
 Pipeline completo de dados, desde a coleta até a carga final em banco de dados SQL, utilizando um dataset público de transações de cartão de crédito com foco em fraude.
+
+3. [Análise de Eficiência de Cobrança](./analise_eficiencia_cobranca)
+
+Projeto completo envolvendo engenharia de dados em SQL, análise exploratória em Python e desenvolvimento de dashboard interativo no Looker Studio. O projeto analisa o comportamento de pagamento dos clientes, destacando padrões de pagamento parcial e atraso, com foco na identificação de riscos e apoio à tomada de decisão em cobrança.
