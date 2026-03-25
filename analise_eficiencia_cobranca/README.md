@@ -62,7 +62,7 @@ Foi realizada uma análise exploratória dos dados a partir do dataset final, co
 -  Distribuição do limite de crédito: a maior parte dos clientes possui limite inferior a 100 mil, indicando concentração em faixas de menor exposição ao risco;
 - Perfil demográfico dos clientes: 
     - base predominantemente feminina;
-    - com idade inferior a 45 anos;
+    - composta majoritariamente por clientes solteiros;
     - com idade inferior a 45 anos;
     - com nível de escolaridade superior;
 - Distribuição do percentual de pagamento: indica predominância de pagamentos parciais, com presença de casos em que há quitação de dívidas acumuladas;
@@ -74,3 +74,16 @@ Foi realizada uma análise exploratória dos dados a partir do dataset final, co
 
 **Principal Conclusão**: 
 As estratégias de cobrança devem considerar não apenas clientes em atraso, mas também aqueles que realizam pagamentos mínimos recorrentes, buscando reduzir o risco de inadimplência futura.
+
+## 4 - Dashboard
+
+![Dashboard Eficiência de Pagalmento](assets/dasboard_efiencia_pagamento.png)
+
+Este dashboard foi criado para analisar a eficiência de pagamento com base nos integridade dos pagamentos, percentual pagos e atrasos. 
+Nele é possível observar que a maioria dos clientes paga parcialmente, o que pode levar ao acúmulo de dívida ao longo do tempo. 
+O dashboard para ser simples e fácil de interpretar, ajudando a identificar os gargalos do risco de inadimplência. 
+
+## Autor
+Vanessa Costa
+
+Projeto desenvolvido para fins de estudo e portfólio em análise de dados e risco de crédito.
